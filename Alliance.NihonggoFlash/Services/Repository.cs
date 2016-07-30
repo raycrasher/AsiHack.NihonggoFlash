@@ -39,30 +39,38 @@ namespace Alliance.NihonggoFlash.Services
 
         protected override void Seed(Repository context)
         {
+            // read from InitData.csv
             var cards = context.Cards;
-            cards.Add(new FlashCard {
-                Word = "Blah1",
-                HowToRead = "Blah2",
-                Meaning = "Blah3",
-                Sample = "Blah4"
-            });
 
+            using (var reader = System.IO.File.OpenText("InitData.csv"))
+            {
+                var csv = new CsvHelper.CsvReader(reader);
+
+                while (csv.Read())
+                {
+                    string word, howToRead, meaning, sample;
+
+                    csv.TryGetField(0, out word);
+                    csv.TryGetField(1, out howToRead);
+                    csv.TryGetField(2, out meaning);
+                    csv.TryGetField(3, out sample);
+                    var card = new FlashCard
+                    {
+                        Word = word,
+                        HowToRead = howToRead,
+                        Meaning = meaning,
+                        Sample = sample
+                    };
+                    cards.Add(card);
+                }
+            }
             cards.Add(new FlashCard
             {
-                Word = "Di Na",
-                HowToRead = "Jud ko",
-                Meaning = "Muusab",
-                Sample = "Kausa na LAAANNNGGG"
+                HowToRead = "ひるまがあたたかい",
+                Word = "昼間が暖かい",
+                Meaning = "It's warm in the daytime",
+                Sample = "NA"
             });
-
-            cards.Add(new FlashCard
-            {
-                Word = "aaa",
-                HowToRead = "bbb",
-                Meaning = "ccccc",
-                Sample = "dd"
-            });
-
             context.SaveChanges();
             base.Seed(context);
         }

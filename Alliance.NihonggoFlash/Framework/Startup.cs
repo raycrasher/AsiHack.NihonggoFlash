@@ -14,6 +14,7 @@ namespace Alliance.NihonggoFlash.Framework
         public static void Main(string[] args)
         {
             SimpleIoc.Default.Register<IRepository,Repository>();
+            SimpleIoc.Default.Register<RunOnWindowsStartup>();
 
             MainWindow mainWindow = new MainWindow();
 

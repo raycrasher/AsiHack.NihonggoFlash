@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MahApps.Metro;
+using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +20,7 @@ namespace Alliance.NihonggoFlash.Views
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         public MainWindow()
         {
@@ -27,6 +29,9 @@ namespace Alliance.NihonggoFlash.Views
 
         private void OnLoad(object sender, RoutedEventArgs e)
         {
+            ThemeManager.ChangeAppStyle(Application.Current,
+                                                ThemeManager.GetAccent("Blue"),
+                                                ThemeManager.GetAppTheme("BaseLight"));
             var desktopWorkingArea = System.Windows.SystemParameters.WorkArea;
             this.Left = desktopWorkingArea.Right - this.Width;
             this.Top = desktopWorkingArea.Bottom - this.Height;

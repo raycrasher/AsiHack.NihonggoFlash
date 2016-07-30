@@ -25,6 +25,14 @@ namespace Alliance.NihonggoFlash.ViewModels
             var cards = SimpleIoc.Default.GetInstance<IRepository>().Cards;
             //var count = cards.Count();
             return cards.First();
+            /*
+            return new FlashCard
+            {
+                HowToRead = "ひるまがあたたかい",
+                Word = "昼間が暖かい",
+                Meaning = "It's warm in the daytime",
+                Sample = "NA"
+            };*/
         }
     }
 }
