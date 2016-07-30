@@ -1,19 +1,28 @@
-﻿<Window x:Class="Alliance.NihonggoFlash.MainWindow"
+﻿<Window x:Class="Alliance.NihonggoFlash.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:Alliance.NihonggoFlash.ViewModels"
         xmlns:local="clr-namespace:Alliance.NihonggoFlash"
         mc:Ignorable="d"
-        Title="NihonggoFlash" Height="350" Width="383">
-    <StackPanel>
-        <Label>Word</Label>
-        <Label HorizontalContentAlignment="Center" FontSize="30" FontFamily="MS PGothic">Words</Label>
-        <Label>How to Read</Label>
-        <Label HorizontalContentAlignment="Center" FontSize="30" FontFamily="MS PGothic">Words</Label>
-        <Label>Meaning</Label>
-        <Label HorizontalContentAlignment="Center" FontSize="30" FontFamily="MS PGothic">Words</Label>
-        <Label>Sample</Label>
-        <Label HorizontalContentAlignment="Center" FontSize="30" FontFamily="MS PGothic">Words</Label>
-    </StackPanel>
+        WindowStartupLocation="Manual"
+        Title="NihonggoFlash" Height="350" Width="383"
+        Loaded="OnLoad"
+        >
+    <Window.Resources>
+        <vm:MainViewModel x:Key="Model"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource Model}">
+        <StackPanel>
+            <Label>Word</Label>
+            <Label HorizontalContentAlignment="Center" FontSize="30" FontFamily="MS PGothic" Content="{Binding FlashCard.Word}"/>
+            <Label>How to Read</Label>
+            <Label HorizontalContentAlignment="Center" FontSize="30" FontFamily="MS PGothic" Content="{Binding FlashCard.HowToRead}"/>
+            <Label>Meaning</Label>
+            <Label HorizontalContentAlignment="Center" FontSize="30" FontFamily="MS PGothic" Content="{Binding FlashCard.Meaning}"/>
+            <Label>Sample</Label>
+            <Label HorizontalContentAlignment="Center" FontSize="30" FontFamily="MS PGothic" Content="{Binding FlashCard.Sample}"/>
+        </StackPanel>
+    </Grid>
 </Window>

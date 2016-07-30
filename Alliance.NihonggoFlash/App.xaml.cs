@@ -13,5 +13,10 @@ namespace Alliance.NihonggoFlash
     /// </summary>
     public partial class App : Application
     {
+
+        private void ApplicationStart(object sender, StartupEventArgs e)
+        {
+            Run(new Views.MainWindow());
+        }
     }
 }
