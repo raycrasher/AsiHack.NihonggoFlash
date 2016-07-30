@@ -5,11 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Alliance.NihonggoFlash"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="NihonggoFlash" Height="350" Width="383">
     <StackPanel>
         <Label>Word</Label>
+        <Label HorizontalContentAlignment="Center" FontSize="30" FontFamily="MS PGothic">Words</Label>
         <Label>How to Read</Label>
+        <Label HorizontalContentAlignment="Center" FontSize="30" FontFamily="MS PGothic">Words</Label>
         <Label>Meaning</Label>
+        <Label HorizontalContentAlignment="Center" FontSize="30" FontFamily="MS PGothic">Words</Label>
         <Label>Sample</Label>
+        <Label HorizontalContentAlignment="Center" FontSize="30" FontFamily="MS PGothic">Words</Label>
     </StackPanel>
 </Window>
